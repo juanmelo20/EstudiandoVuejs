@@ -10,6 +10,9 @@ const incrementar = () => {
 const decrementar = () => {
       console.log('disminuyendo contador')
       contador.value--
+      if(contador.value<0){
+            contador.value=''
+      }
       console.log(contador.value)
 }
 const mostrarMensaje = () => {
@@ -21,6 +24,14 @@ const mostrarMensaje = () => {
             return 'cero!!'
       }
 }
+
+const limpiar =()=>{
+      if(contador.value>0 || contador.value<0){
+            contador.value = '';
+      }
+      
+      }
+
 </script>
 
 <template>
@@ -33,7 +44,7 @@ const mostrarMensaje = () => {
       </svg>
       <br>
       <button @click="decrementar">-</button>
-
+      <button @click="limpiar">Limpiar</button>
       <button @click="incrementar">+</button>
       <h1>{{ mostrarMensaje() }}</h1>
 </template>
