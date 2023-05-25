@@ -24,7 +24,6 @@ const mostrarMensaje = () => {
             return 'cero!!'
       }
 }
-
 const limpiar =()=>{
       if(contador.value>0 || contador.value<0){
             contador.value = '';
