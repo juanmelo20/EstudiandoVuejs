@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref , computed } from 'vue';
 
 const contador = ref(0)
 const incrementar = () => {
@@ -16,11 +16,22 @@ const decrementar = () => {
 const limpiar =()=>{
             contador.value = 0;
       }
-
+// eslint-disable-next-line vue/return-in-computed-property
+const classContador = computed(()=>{
+      if (contador.value === 0){
+            return 'zero'
+      }
+      if(contador.value > 0){
+            return 'positive'
+      }
+      if(contador.value < 0){
+            return 'negative'
+      }
+})
 </script>
 
 <template>
-      <h2 :class="contador > 0 ? 'positive' : 'negative'">
+      <h2 :class="classContador">
             {{ contador }}
       </h2>
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
@@ -43,12 +54,15 @@ const limpiar =()=>{
 .positive{
       color: green;
 }
+.zero{
+      color: peru;
+}
 svg {
       height: 300px;
       width: 300px;
 }
 button{
-      margin-left: 60px;
+      margin-left: 25px;
       padding-left: 0.5cm;
       padding-right: 0.5cm;
       background: rgb(162, 221, 221);
