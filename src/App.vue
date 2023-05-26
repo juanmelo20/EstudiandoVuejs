@@ -47,8 +47,8 @@ const Add=()=>{
 </script>
 
 <template>
-      <div class="container text-center">
-            <h2 :class="classContador">
+      <div class="">
+                  <h2 :class="classContador">
                   {{ contador }}
             </h2>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
@@ -58,21 +58,21 @@ const Add=()=>{
                   </g>
             </svg>
             <br>
-            <button @click="decrementar" class="btn btn-danger">-</button>
-            <button @click="limpiar" class="btn btn-secondary">Limpiar</button>
-            <button @click="incrementar" class="btn btn-success">+</button>
+            <button @click="decrementar">-</button>
+            <button @click="limpiar">Limpiar</button>
+            <button @click="incrementar">+</button>
             <br>
-            <button @click="Add" :disabled="desactivarAdd" class="btn btn-primary">Add</button>
+            <button @click="Add" :disabled="desactivarAdd" >Add</button>
             <br>
             <h1>
                   {{ arraysAgregados }}
             </h1>
-            <ul class="list-group">
-                  <li class="list-group-item" v-for="(num) in arraysAgregados" :key="num">
+            <ul>
+                  <li v-for="(num) in arraysAgregados" :key="num">
                   {{ num }}
                   </li>
             </ul>
-
+           
  
       </div>
       
